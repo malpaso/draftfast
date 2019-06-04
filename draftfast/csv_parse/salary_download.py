@@ -2,7 +2,7 @@ import csv
 from draftfast.orm import Player
 from draftfast.pickem.pickem_orm import TieredPlayer
 from draftfast.showdown.orm import ShowdownPlayer
-from draftfast.rules import DRAFT_KINGS, FAN_DUEL
+from draftfast.rules import DRAFT_KINGS, FAN_DUEL, DRAFT_STARS
 
 GAME_KEY_MAP = {
     DRAFT_KINGS: {
@@ -21,7 +21,16 @@ GAME_KEY_MAP = {
         'game': 'Game',
         'game_alt': None,
         'avg': 'FPPG',
-    }
+    },
+    DRAFT_STARS: {
+        'name': 'Name',
+        'salary': 'Salary',
+        'team': 'Team',
+        'team_alt': None,
+        'game': 'Opponent',
+        'game_alt': None,
+        'avg': 'FPPG',
+    },
 }
 
 

@@ -190,6 +190,15 @@ class NHLRoster(Roster):
     }
 
 
+class AFLRoster(Roster):
+    POSITION_ORDER = {
+        'FWD': 0,
+        'MID': 1,
+        'DEF': 2,
+        'RK': 3,
+    }
+
+
 class RosterSelect:
     @staticmethod
     def roster_gen(league):
@@ -207,6 +216,7 @@ class RosterSelect:
             'EL': ELRoster(),
             'NHL': NHLRoster(),
             'NHL_SHOWDOWN': ShowdownRoster(),
+            'AFL': AFLRoster(),
         }
         return roster_dict[league]
 

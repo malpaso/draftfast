@@ -1,5 +1,6 @@
 DRAFT_KINGS = 'DRAFT_KINGS'
 FAN_DUEL = 'FAN_DUEL'
+DRAFT_STARS = 'DRAFT_STARS'
 
 
 ROSTER_SIZE = {
@@ -23,6 +24,9 @@ ROSTER_SIZE = {
         'WNBA': 7,
         'NASCAR': 5,
         'PGA': 6,
+    },
+    DRAFT_STARS: {
+        'AFL': 9
     }
 }
 
@@ -48,6 +52,9 @@ SALARY_CAP = {
         'WNBA': 40_000,
         'NASCAR': 50_000,
         'PGA': 60_000,
+    },
+    DRAFT_STARS: {
+        'AFL': 100_000
     }
 }
 
@@ -160,6 +167,14 @@ POSITIONS = {
         'PGA': [
             ['G', 6, 6],
         ],
+    },
+    DRAFT_STARS: {
+        'AFL': [
+            ['FWD', 2, 2],
+            ['MID', 4, 4],
+            ['DEF', 2, 2],
+            ['RK', 1, 1],
+        ],
     }
 }
 
@@ -172,6 +187,13 @@ NBA_GENERAL_POSITIONS = [
 WNBA_GENERAL_POSITIONS = [
     ['G', 2, 3],
     ['F', 3, 4],
+]
+
+AFL_GENERAL_POSITIONS = [
+    ['FWD', 2, 2],
+    ['MID', 4, 4],
+    ['DEF', 2, 2],
+    ['RK', 1, 1],
 ]
 
 
@@ -192,6 +214,16 @@ class RuleSet(object):
         self.offensive_positions = offensive_positions
         self.defensive_positions = defensive_positions
         self.game_type = game_type
+
+
+DS_AFL_RULE_SET = RuleSet(
+    site=DRAFT_STARS,
+    league='AFL',
+    roster_size=ROSTER_SIZE[DRAFT_STARS]['AFL'],
+    salary_max=SALARY_CAP[DRAFT_STARS]['AFL'],
+    position_limits=POSITIONS[DRAFT_STARS]['AFL'],
+    general_position_limits=AFL_GENERAL_POSITIONS,
+)
 
 
 DK_NBA_RULE_SET = RuleSet(
